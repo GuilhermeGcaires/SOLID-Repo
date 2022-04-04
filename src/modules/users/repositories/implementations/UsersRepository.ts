@@ -31,6 +31,8 @@ class UsersRepository implements IUsersRepository {
 
     this.users.push(user);
 
+    console.log(this.users);
+
     return user;
   }
 
@@ -45,11 +47,16 @@ class UsersRepository implements IUsersRepository {
   }
 
   turnAdmin(receivedUser: User): User {
-    // Complete aqui
+    Object.assign(receivedUser, {
+      admin: true,
+      updated_at: new Date(),
+    });
+
+    return receivedUser;
   }
 
   list(): User[] {
-    // Complete aqui
+    return this.users;
   }
 }
 
